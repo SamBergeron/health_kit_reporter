@@ -104,7 +104,7 @@ extension SwiftHealthKitReporterPlugin {
                 FlutterError(
                     code: className,
                     message: "Please check the method",
-                    details: "Provied method: \(call.method)"
+                    details: "Provided method: \(call.method)"
                 )
             )
             return
@@ -360,7 +360,7 @@ extension SwiftHealthKitReporterPlugin {
                     FlutterError(
                         code: "RequestAuthorization",
                         message: "Error in displaying Apple Health permission screen",
-                        details: error
+                        details: error.debugDescription
                     )
                 )
                 return
@@ -379,7 +379,7 @@ extension SwiftHealthKitReporterPlugin {
                 result(
                     FlutterError(
                         code: className,
-                        message: "Error in parsing quantitiy type",
+                        message: "Error in parsing quantity type",
                         details: "Identifier unknown: \(argument)"
                     )
                 )
@@ -394,7 +394,7 @@ extension SwiftHealthKitReporterPlugin {
                 result(
                     FlutterError(
                         code: "PreferredUnits",
-                        message: "Error in getting preffered units",
+                        message: "Error in getting preferred units",
                         details: error
                     )
                 )
@@ -406,7 +406,7 @@ extension SwiftHealthKitReporterPlugin {
                 result(
                     FlutterError(
                         code: "PreferredUnits",
-                        message: "Error in json encoding of preffered units: \(preferredUnits)",
+                        message: "Error in json encoding of preferred units: \(preferredUnits)",
                         details: error
                     )
                 )
@@ -1286,7 +1286,7 @@ extension SwiftHealthKitReporterPlugin {
         }
         let device = arguments["device"] as? [String: Any]
         do {
-            reporter.writer.addQuantitiy(try quantity.map {
+            reporter.writer.addQuantity(try quantity.map {
                 try Quantity.make(from: $0)
             },
             from: device != nil
@@ -1296,8 +1296,8 @@ extension SwiftHealthKitReporterPlugin {
                 guard error == nil else {
                     result(
                         FlutterError(
-                            code: "AddQuantitiy",
-                            message: "Error in addQuantitiy",
+                            code: "AddQuantity",
+                            message: "Error in addQuantity",
                             details: error
                         )
                     )
@@ -1322,7 +1322,7 @@ extension SwiftHealthKitReporterPlugin {
                         FlutterError(
                             code: "Delete",
                             message: "Error in delete",
-                            details: error
+                            details: error.debugDescription
                         )
                     )
                     return
@@ -1369,7 +1369,7 @@ extension SwiftHealthKitReporterPlugin {
                     FlutterError(
                         code: "DeleteObjects",
                         message: "Error in delete",
-                        details: error
+                        details: error.debugDescription
                     )
                 )
                 return
