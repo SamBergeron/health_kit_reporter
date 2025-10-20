@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
   s.social_media_url      = 'https://twitter.com/Victor_Kachalov'
   s.ios.deployment_target = '9.0'
   s.source_files          = 'Classes/**/*'
-  s.platform              = :ios, '9.0'
+  s.platform              = :ios, '10.0'
 
   s.dependency 'Flutter'
-  s.dependency 'HealthKitReporter', '3.0.0'
+  s.dependency 'HealthKitReporter'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
